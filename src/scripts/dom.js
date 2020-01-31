@@ -12,7 +12,7 @@ const dom = {
                 <input type="text" class="month__input">
                 <label for="year">Year (YYYY)</label>
                 <input type="text" class="year__input">
-                <button type="submit" class="submit">Get Games</button>
+                <button type="submit" class="submit__button">Get Games</button>
             <fieldset>
         `
         return formHTML
