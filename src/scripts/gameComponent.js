@@ -6,7 +6,8 @@ const gameComponent = {
             <tr class="table__dataRow">
                 <td>${game.url}</td>
                 <td>${game.time_control}</td>
-                <td>${this.convertDateTime(game.end_time)}</td>
+                <td>${this.convertDate(game.end_time)}</td>
+                <td>${this.convertTime(game.end_time)}</td>
                 <td>${game.rated}</td>
                 <td>${game.time_class}</td>
                 <td>${game.white.rating}</td>
@@ -20,10 +21,17 @@ const gameComponent = {
         return newRowHtml
     },
 
-    convertDateTime: function(unixTimestamp) {
-        const date = new Date(unixTimestamp * 1000)
+    convertDate: function(unixTimestamp) {
+        const date = new Date(unixTimestamp * 1000).toLocaleDateString()
         return date
+    },
+
+    convertTime: function(unixTimestamp) {
+        const time = new Date(unixTimestamp * 1000).toLocaleTimeString()
+        return time
     }
+
+    
 }
 
 export default gameComponent;
