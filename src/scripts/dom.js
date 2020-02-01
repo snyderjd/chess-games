@@ -21,12 +21,7 @@ const dom = {
     // Adds html string to the DOM
     addHTMLToDOM: (container, htmlString) => {
         container.innerHTML += htmlString;
-    },
-
-
-
-
-
+    }
 }
 
 export default dom;

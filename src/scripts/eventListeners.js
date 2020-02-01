@@ -1,4 +1,5 @@
 import data from './data.js'
+import gameComponent from './gameComponent.js'
 
 export function submitEventListener () {
     // Get reference to submit button
@@ -11,15 +12,17 @@ export function submitEventListener () {
         const yearInput = document.querySelector('.year__input').value;
         const monthInput = document.querySelector('.month__input').value;
 
-        console.log(usernameInput)
-        console.log(yearInput)
-        console.log(monthInput)
+        // Get reference to games table
+        const gamesTable = document.querySelector('.game__table')
 
-        // call function to get games from chess.com
         data.getGames(usernameInput, monthInput, yearInput)
-            .then(parsedGames => {
-                console.log(parsedGames)
-            });
+            .then(response => {
+                response.games.forEach(game => {
+                    // Write a function that takes in a game object and returns an html string
+                    const gameRowHtml = gameComponent.createGameHTML(game);
+                    gamesTable.innerHTML += gameRowHtml
+                })
+            })
         
     })
 }
